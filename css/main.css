@@ -189,7 +189,7 @@ body {
   font-size: 14px;
   line-height: 2;
   color: #555;
-  background: #f5f7f9;
+  background: #fff;
 }
 @media (max-width: 767px) {
   body {
@@ -1681,7 +1681,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e7ffe0;
+  background: #ff59a6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2064,17 +2064,6 @@ pre .javascript .function {
   background-color: #78ace9 !important;
   border-color: #4cae4c !important;
 }
-.cloud-tie-wrapper img {
-  display: inline-block;
-}
-.cloud-tie-wrapper .total-txt {
-  font-size: 1em !important;
-}
-.cloud-tie-join-count .join-count {
-  color: #555 !important;
-  font-size: inherit !important;
-  margin: 0 !important;
-}
 .post-spread {
   margin-top: 20px;
   text-align: center;
@@ -2450,6 +2439,9 @@ a.search-result {
 .page-post-detail .comments {
   overflow: hidden;
 }
+body {
+  background: #f5f7f9;
+}
 @media (min-width: 992px) {
   .full-image.full-image.full-image {
     max-width: none;
@@ -2479,8 +2471,6 @@ a.search-result {
   padding: 0;
   width: 240px;
   background: #fff;
-  box-shadow: initial;
-  border-radius: initial;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
@@ -2491,14 +2481,12 @@ a.search-result {
   .header-inner {
     position: relative;
     width: auto;
-    border-radius: initial;
   }
 }
 @media (max-width: 767px) {
   .header-inner {
     position: relative;
     width: auto;
-    border-radius: initial;
   }
 }
 .main:before,
@@ -2539,14 +2527,11 @@ a.search-result {
   width: 700px;
   background: #fff;
   min-height: 700px;
-  box-shadow: initial;
-  border-radius: initial;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
     width: 100%;
     padding: 20px;
-    border-radius: initial;
   }
 }
 @media (max-width: 767px) {
@@ -2554,7 +2539,6 @@ a.search-result {
     width: 100%;
     padding: 20px;
     min-height: auto;
-    border-radius: initial;
   }
 }
 .sidebar {
@@ -2562,7 +2546,7 @@ a.search-result {
   float: left;
   margin-top: 300px;
   width: 240px;
-  background: #f5f7f9;
+  background: #fff;
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2639,8 +2623,7 @@ a.search-result {
   color: #fff;
 }
 .site-subtitle {
-  margin: 10px 10px 0;
-  font-family: monospace;
+  margin: 0;
 }
 .site-search form {
   display: none;
@@ -2719,8 +2702,6 @@ a.search-result {
   width: 240px;
   color: #555;
   background: #fff;
-  box-shadow: initial;
-  border-radius: initial;
 }
 .sidebar-inner.affix {
   position: fixed;
