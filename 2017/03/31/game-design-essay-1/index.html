@@ -1,0 +1,739 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="游戏,游戏设计," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="引子又开新坑了，虽然上次 Polygon 的专题还没有翻译完，但是懒癌发作的同时又想着写点什么，其实一直都有为某个主题长期写点什么的打算，正好借着这股劲头在最感兴趣的领域挖掘点内容出来好了。这个系列会写一些自己关于游戏设计的感悟，会有玩的时候产生的想法，也会有自己做项目时想到的点，这个系列从第一篇开始，里头的很多内容在未来的回过头看，肯定到处都是不成熟和不确定，但是正好当做思考历程的记录吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏设计随笔（一）：关于沉浸式体验的一点思考 其一">
+<meta property="og:url" content="http://yoursite.com/2017/03/31/game-design-essay-1/index.html">
+<meta property="og:site_name" content="阿纳海姆电子出版社">
+<meta property="og:description" content="引子又开新坑了，虽然上次 Polygon 的专题还没有翻译完，但是懒癌发作的同时又想着写点什么，其实一直都有为某个主题长期写点什么的打算，正好借着这股劲头在最感兴趣的领域挖掘点内容出来好了。这个系列会写一些自己关于游戏设计的感悟，会有玩的时候产生的想法，也会有自己做项目时想到的点，这个系列从第一篇开始，里头的很多内容在未来的回过头看，肯定到处都是不成熟和不确定，但是正好当做思考历程的记录吧。">
+<meta property="og:updated_time" content="2017-03-30T19:07:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="游戏设计随笔（一）：关于沉浸式体验的一点思考 其一">
+<meta name="twitter:description" content="引子又开新坑了，虽然上次 Polygon 的专题还没有翻译完，但是懒癌发作的同时又想着写点什么，其实一直都有为某个主题长期写点什么的打算，正好借着这股劲头在最感兴趣的领域挖掘点内容出来好了。这个系列会写一些自己关于游戏设计的感悟，会有玩的时候产生的想法，也会有自己做项目时想到的点，这个系列从第一篇开始，里头的很多内容在未来的回过头看，肯定到处都是不成熟和不确定，但是正好当做思考历程的记录吧。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/31/game-design-essay-1/"/>
+
+
+
+
+
+  <title> 游戏设计随笔（一）：关于沉浸式体验的一点思考 其一 | 阿纳海姆电子出版社 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿纳海姆电子出版社</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">月面都市格拉纳达阿纳海姆大街 1 号</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/game-design-essay-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="7">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿纳海姆电子出版社">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                游戏设计随笔（一）：关于沉浸式体验的一点思考 其一
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T00:00:00+08:00">
+                2017-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h1><p>又开新坑了，虽然上次 Polygon 的专题还没有翻译完，但是懒癌发作的同时又想着写点什么，其实一直都有为某个主题长期写点什么的打算，正好借着这股劲头在最感兴趣的领域挖掘点内容出来好了。这个系列会写一些自己关于游戏设计的感悟，会有玩的时候产生的想法，也会有自己做项目时想到的点，这个系列从第一篇开始，里头的很多内容在未来的回过头看，肯定到处都是不成熟和不确定，但是正好当做思考历程的记录吧。</p>
+<a id="more"></a>
+<h1 id="什么是沉浸式体验"><a href="#什么是沉浸式体验" class="headerlink" title="什么是沉浸式体验"></a>什么是沉浸式体验</h1><p>说句实话，作为系列的第一篇这个标题实在是有点太大，但又确实是自己在目前这个进行到一小半的项目的制作过程中一直在思考的点。暂且以“一点思考”为题写一些东西好了。</p>
+<p>既然要谈论什么是沉浸式体验，那么首先要搞明白什么是沉浸式体验。自己作为非“科班”（游戏设计本不存在所谓科班概念，但确实现在有很多知名院校都纷纷开设了游戏设计专业并邀请了行业巨擘作为导师）出身的设计者，纵然无法为沉浸式体验给出如学术定义一般准确的描述，但却也多多少少有一些形成了体系的理解。就自己的理解而言，所谓沉浸式体验，大致上可以分为宏观和微观两种：宏观上的沉浸式体验可以覆盖到所有的游戏类别与游戏的方方面面之中，其核心就在于让玩家真的融入到游戏所提供的环境当中去，这一点自然是所有游戏设计者所追求的目标。宏观上的沉浸式体验可以看做是游戏设计大方向上的指引，对于实际设计与开发而言，更有价值的则是微观上的沉浸式体验。既然是微观，那么根据游戏类型的不同，所提供的沉浸式体验自然也因类型而异，角色扮演类游戏所要带给玩家的沉浸感和体验感绝对是和体育运动类或是赛车竞速类绝对不一样的。哪怕是一个大的类别下，其中由于题材等因素产生的差别也会带给玩家截然不同的感受与体验：中世纪剑与魔法风格与后现代启示录风格怎么想也很难说可以按照同样的思路去制作。从细节出发，设计者将游戏所要表现的题材与内容尽量明确清晰地展现给玩家，而玩家则在设计者不着痕迹却又目的明确地引导下体验到这些内容，这，可以说就是微观层面上的沉浸式体验对于游戏的设计开发人员和玩家的意义了。</p>
+<h1 id="角色扮演类的沉浸式体验"><a href="#角色扮演类的沉浸式体验" class="headerlink" title="角色扮演类的沉浸式体验"></a>角色扮演类的沉浸式体验</h1><p>既然标题也写到是其一，那么这篇就先从我自己最为喜爱的角色扮演类出发来谈谈沉浸式体验。总的来说，由于技术能力的进步和类型分界的模糊，现在已经很难定义纯粹的角色扮演类游戏了。FPS 会添加 RPG 要素，ACT 会添加 RPG 要素，就连运动类也会想着法子添加 RPG 要素：《FIFA 16》就搞了一个角色扮演式的生涯模式。当然这一点改变并不是坏事，但是从设计者的层面出发，这种改变无形之中模糊了设计的焦点以至于导致了设计难度的增加。还是以《FIFA 16》为例，角色扮演式的生涯模式做得有些不伦不类，让玩家摸不着这个模式存在的意义到底是什么，结果导致看起来更像是 EA 把一款处于 pre-produce 的试验品扔到了正式发售的游戏里去了。</p>
+<p>我们先抛开类型混合与不同玩法的干扰，单纯将只考虑做好沉浸式体验作为出发点，一款角色扮演类的游戏需要做到的，有哪些点呢？回过头去看看那些已经为设计者们作出优秀表率的游戏的话，我认为这些游戏展现出的最关键的一点就是：将大量精心设计过的细节巧妙地填充到游戏的流程中去。在真正能被利用的人工智能出现之前，游戏终究还是完完全全由设计者来填充内容的，也就是说游戏里的每一行文字，每一个物件，每一次剧情触发都需要由设计者来创造。游戏设计师也是人，不可能拥有无限的精力，而哪怕是 Rockstar 这种级别，也不可能去组成一个人数无限的开发团队，再算上技术上的制约，这意味着能被添加到游戏里的内容，终究也还是有限的。将每一处要添加到游戏里的内容都做到尽善尽美自然是必须的要求，但是更重要的是如何将这些设计者精心设计和制作的内容完美地让玩家体验到。最近的一个优秀的例子自然非《巫师 3：狂猎》（以下简称巫师 3）莫属，这款游戏中所包含的内容之多，固然已经足够令人咂舌，可更波兰人将这些内容展现给玩家时所采取的方式方法，才是这款游戏能够靠一部 DLC 便击败口碑不凡的《黑暗之魂 3》拿走 TGA 年度最佳 RPG 奖项的最大原因。巫师 3 的设计师们用令人惊叹的结构设计引导着玩家去接触并体验他们精心制作的每一处细节。设计师们并没有简单粗暴地告诉你现在应该去做什么，眼前这几个选项到底哪个是最好最有利的，玩家需要通过在游戏里获得的信息来真正融入到故事背景与剧情中去思考自己的下一步到底该如何决定。即使是游戏中最浅显的一些斩妖除魔的任务，设计师们仍旧没有放弃任何一丁点可以利用游戏内容去做引导的地方：几个看似毫无关联的事件或是任务，可能会提供其他任务所需要的材料或是道具，亦或是可能了解之前故事线中不太清楚的部分，也有可能为之后发生的故事做了剧情或是背景上的铺垫。即便单说任务触发这一点，波兰人就费尽了心思：一个任务可能会是从城镇看板上接到，也可能会是某个任务线的后续，又可能会是从其他任务线中接触到的 NPC 发展而来，还有可能单纯就是因为玩家已然跑到了那个地方接触到了相关的道具或是事件。庞大复杂的交叉设计，在最大程度利用到了游戏中内容的同时，也给玩家带来了最具有沉浸感的角色扮演体验：玩家似乎真的就是那个在大战之后寻找养女的著名狩魔猎人杰洛特。</p>
+<p>要做到这些，至少两个方面是需要设计师倾注全力的。首先第一点，游戏内的任何内容，需要在设计好的框架范围内来精心制作。巫师系列虽然占了有小说原作的优势，省去了从零开始构建世界观的步骤，但是设计师们在往游戏内添加各式各样内容的时候，也需要最大程度去理解巫师世界的每一点细节。游戏当中的每一个部件，都需要根据已有的世界观来合理地制作。建筑的设计和装饰的摆放陈列，场景与环境和事件的关联等等都需要最大程度符合世界观和剧情大框架的设定。这样一来，引导玩家接触到这些细节并让玩家利用这些接触到的内容为之后的体验做铺垫和准备时，才不会让玩家产生割裂感与违和感。没有割裂干和违和感，方才能称得上是沉浸。但正如上文提到的，光是将这些内容填充进去还是不行的，试想一下那些巧妙地任务关联设计全变成了一张大大的可执行任务列表的话，哪还有任何一丁点的沉浸感与体验感呢？那样只会让玩家觉得自己是在做一张全是选择题的试卷或是在考交通规则的科目一。许多游戏令人诟病的“去 XX 处杀 XX 只怪，然后找 XX 领取 XX”的任务模式就是对这种错误设计的完美体现。总而言之，在拥有了大量合理制作的内容之后，串联这些内容的方式就要起到最为重要的作用了。还是以巫师 3 为例的话，尽量提供符合实际可能的触发条件与方式，目前来看是一种比较合理而且有效的设计模式。既然一个 NPC 要提供的任务在设计中是他相当着急的一件事，那么为什么不能在玩家闲逛碰到他时便激活触发呢？大量的合理内容在拥有大量合理触发点之后，这些内容彼此之间就会被触发点互相连接从而形成一张巨大的网，那么这也就是一直为大家所热烈追捧的网状设计了。其实说白了，这种方式是最符合玩家通常认知的。不管游戏的背景与内容多么天马行空，设计者是人，玩家也是人，理解事物的方式自然不可避免地是从且只能从人的理解方式出发。那么，将引导玩家去接触内容的方式设计得和现实世界中每个人会去接触事物的方式与路径相似，自然也是最能吸引玩家的做法了。现实世界中人与人以及人与事的关系，是不可能像“去 XX 处杀死 XX 只 XX”那样平铺直叙简单直白的。</p>
+<p>行文至此，也算是浅尝辄止地分析了下如何去设计角色扮演类游戏沉浸式体验，关于这一点自然还有很多方面可以聊，例如如何将 CRPG 那种使用大段文字的小说式处理方式转移到更现代化的表现形式上去，亦或是和自己目前的工作结合，如何在时间碎片化的情况下最大限度提供具有沉浸感的角色扮演体验。这些话题就留待以后有好的想法时再谈好了。</p>
+<p>可以预见的是，这个系列，会很长很长…</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/游戏/" rel="tag"># 游戏</a>
+          
+            <a href="/tags/游戏设计/" rel="tag"># 游戏设计</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/17/polygon-final-fantasy-7-issue-translation/" rel="next" title="最终幻想 7 ： 一段口述的历史">
+                <i class="fa fa-chevron-left"></i> 最终幻想 7 ： 一段口述的历史
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="7" />
+          <p class="site-author-name" itemprop="name">7</p>
+           
+              <p class="site-description motion-element" itemprop="description">阿纳海姆电子媒体集团下属站点</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/aenerv7" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/aenerv7" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aenerv7" target="_blank" title="新浪微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  新浪微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bangumi.tv/user/aenerv7" target="_blank" title="番組計画">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  番組計画
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/aenerv7" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/aenerv7" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是沉浸式体验"><span class="nav-number">2.</span> <span class="nav-text">什么是沉浸式体验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#角色扮演类的沉浸式体验"><span class="nav-number">3.</span> <span class="nav-text">角色扮演类的沉浸式体验</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">7</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
